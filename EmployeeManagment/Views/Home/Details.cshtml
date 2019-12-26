@@ -1,0 +1,138 @@
+﻿@*<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h3>@ViewData["PageTitle"]</h3>
+        @{
+            var employee = ViewData["Employee"] as EmployeeManagment.Models.Employee;
+
+        }
+
+        <div>
+            Name: @employee.Name
+        </div>
+
+        <div>
+            Email: @employee.Email
+        </div>
+
+        <div>
+            Dept: @employee.Department
+        </div>
+
+    </body>
+    </html>*@
+
+
+
+@*<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h3>@ViewBag.PageTitle</h3>
+        @{
+            var employee = ViewBag.Employee;
+
+        }
+
+        <div>
+            Name: @ViewBag.Employee.Name
+        </div>
+
+        <div>
+            Email: @ViewBag.Employee.Email
+        </div>
+
+        <div>
+            Dept: @ViewBag.Employee.Department
+        </div>
+
+    </body>
+    </html>*@
+
+
+@*@model EmployeeManagment.Models.Employee
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h3>@ViewBag.PageTitle</h3>
+
+        <div>
+            Name: @Model.Name
+        </div>
+
+        <div>
+            Email: @Model.Email
+        </div>
+
+        <div>
+            Dept: @Model.Department
+        </div>
+
+    </body>
+    </html>*@
+
+
+
+
+@model HomeDetailsViewModel
+
+
+
+@{ 
+    ViewBag.Title = "Employee List"; }
+
+
+
+    @*<h3> @Model.PageTitle</h3>
+
+    <div>
+        Name: @Model.Employee.Name
+    </div>
+
+    <div>
+        Email: @Model.Employee.Email
+    </div>
+
+    <div>
+        Dept: @Model.Employee.Department
+    </div>*@
+
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>@Model.Employee.Name</h1>
+            </div>
+
+            <div class="card-body text-center">
+                <img class="card-img-top" src="~/images/noimage.jpg" />
+                <h4> Name: @Model.Employee.Name</h4>
+                <h4> Email: @Model.Employee.Email</h4>
+                <h4> Dept: @Model.Employee.Department</h4>
+            </div>
+            <div class="card-footer text-center">
+                <a asp-controller="home" asp-action="Index"
+                   class="btn btn-primary">Back</a>
+                @*<a href="#" class="btn btn-primary">Back</a>*@
+                <a href="#" class="btn btn-primary">Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@*@section Scripts{
+    <script src="~/js/CustomScript.js"></script>
+
+ }*@
