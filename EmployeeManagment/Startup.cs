@@ -6,6 +6,7 @@ using EmployeeManagment.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,6 +30,13 @@ namespace EmployeeManagment
         {
             services.AddDbContextPool<AppDbContext>(
                 options => options.UseSqlServer(_config.GetConnectionString("EmployeeDBConnection")));
+
+            services.AddIdentity<IdentityUser, IdentityRole>(options => 
+            {
+                options.Password.RequiredLength = 5;
+                options.Password.RequiredUniqueChars = 3;
+            })
+                .AddEntityFrameworkStores<AppDbContext>();
             services.AddMvc();
             //services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
             services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();
@@ -42,7 +50,15 @@ namespace EmployeeManagment
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                // app.UseStatusCodePages();
+                //app.UseStatusCodePagesWithRedirects("/Error/{0}");
 
+                app.UseExceptionHandler("/Error");
+                app.UseStatusCodePagesWithReExecute("/Error/{0}");
+
+            }
             //app.Use(async (context, next) =>
             //{
             //    logger.LogInformation("MW1: Incoming Request");
@@ -57,7 +73,9 @@ namespace EmployeeManagment
             //    logger.LogInformation("MW2: Outgoing Response");
             //});
 
-           // app.UseDefaultFiles();
+            // app.UseDefaultFiles();
+
+            app.UseAuthentication();
             app.UseStaticFiles();
             // app.UseMvcWithDefaultRoute();
             app.UseMvc(routes =>
@@ -66,12 +84,12 @@ namespace EmployeeManagment
             });
            
 
-            app.Run(async (context) =>
-            {
-                //  await context.Response.WriteAsync(_config["MyKey"]);
-                await context.Response.WriteAsync("hello world");
-                logger.LogInformation("MW1: Outgoing Response");
-            });
+            //app.Run(async (context) =>
+            //{
+            //    //  await context.Response.WriteAsync(_config["MyKey"]);
+            //    await context.Response.WriteAsync("hello world");
+            //    logger.LogInformation("MW1: Outgoing Response");
+            //});
         }
     }
 }
