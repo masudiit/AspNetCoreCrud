@@ -11,7 +11,7 @@ namespace EmployeeManagment.ViewModels
     public class RegisterViewModel
     {   [Required]
         [EmailAddress]
-        [Remote(action: "IsEmailInUse", controller: "Account")]
+      //  [Remote(action: "IsEmailInUse", controller: "Account")]
         [ValidEmailDomain(allowedDomain: "gmail.com", ErrorMessage ="Email domain should be gmail.")]
         public string Email { get; set; }
 
