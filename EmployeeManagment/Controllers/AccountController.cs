@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EmployeeManagment.Models;
 using EmployeeManagment.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,13 +12,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagment.Controllers
 {
+    [Authorize]
     public class AccountController : Controller
     {
-        private readonly UserManager<IdentityUser> userManager;
-        private readonly SignInManager<IdentityUser> signInManager;
+        private readonly UserManager<ApplicationUser> userManager;
+        private readonly SignInManager<ApplicationUser> signInManager;
 
-        public AccountController( UserManager<IdentityUser> userManager,
-                                  SignInManager<IdentityUser> signInManager)
+        public AccountController( UserManager<ApplicationUser> userManager,
+                                  SignInManager<ApplicationUser> signInManager)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
@@ -31,6 +34,7 @@ namespace EmployeeManagment.Controllers
 
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Register()
         {
             return View();
@@ -38,11 +42,15 @@ namespace EmployeeManagment.Controllers
 
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    City= model.City};
                 var result = await userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
@@ -65,6 +73,7 @@ namespace EmployeeManagment.Controllers
 
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Login()
         {
             return View();
@@ -72,21 +81,46 @@ namespace EmployeeManagment.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel model)
+        [AllowAnonymous]
+        public async Task<IActionResult> Login(LoginViewModel model,string returnUrl)
         {
             if (ModelState.IsValid)
             {
                 var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
 
                 if (result.Succeeded)
-                {             
-                    return RedirectToAction("index", "home");
+                {
+                    if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToAction("index", "home");
+                    }
                 }
               
                 ModelState.AddModelError("", "Invalid Login Attempt");               
             }
 
             return View(model);
+        }
+
+
+
+        [AcceptVerbs("Get","Post")]
+        public async Task<IActionResult> IsEmailInUse(string email)
+        {
+
+            var user = await userManager.FindByEmailAsync(email);
+            if(user == null)
+            {
+                return Json(true);
+            }
+            else
+            {
+                return Json($"Email {email} is already in use.");
+            }
         }
 
     }

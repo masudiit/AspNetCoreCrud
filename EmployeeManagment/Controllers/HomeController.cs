@@ -1,5 +1,6 @@
 ﻿using EmployeeManagment.Models;
 using EmployeeManagment.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +10,7 @@ using System.IO;
 
 namespace EmployeeManagment.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly IEmployeeRepository _employeeRepository;
@@ -24,6 +26,7 @@ namespace EmployeeManagment.Controllers
             this.logger = logger;
         }
 
+        [AllowAnonymous]
         public ViewResult Index()
         {
             var employee = _employeeRepository.GetAllEmployee();
@@ -52,13 +55,13 @@ namespace EmployeeManagment.Controllers
 
         }
 
-        [HttpGet]
+        [HttpGet]      
         public ViewResult Create()
         {
             return View();
         }
 
-        [HttpGet]
+        [HttpGet]       
         public ViewResult Edit(int id)
         {
             Employee employee = _employeeRepository.GetEmployee(id);
