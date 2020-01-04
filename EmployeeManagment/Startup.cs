@@ -46,6 +46,22 @@ namespace EmployeeManagment
                 .Build();
                 options.Filters.Add(new AuthorizeFilter(policy));
             });
+
+            services.AddAuthorization(options =>
+            {
+                //options.AddPolicy("DeleteRolePloicy", 
+                //    policy => policy.RequireClaim("Delete Role")
+                //   .RequireClaim("Create Role"));
+
+                options.AddPolicy("DeleteRolePloicy",
+                    policy => policy.RequireClaim("Delete Role"));
+
+                options.AddPolicy("AdminRolePloicy",
+                   policy => policy.RequireRole("Admin"));
+
+            });
+
+
             //services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
             services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();
         }

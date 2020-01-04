@@ -97,9 +97,9 @@
             }
         </div>
         <div class="card-footer">
-            @*<a asp-controller="Administration" asp-action="EditUsersInRole" asp-route-roleId="@Model.Id"
-                class="btn btn-primary" style="width:auto">Add or remove Users</a>*@
-
+          <a asp-action="ManageUserClaims" asp-route-userId="@Model.Id" style="width:auto" class="btn btn-primary">
+            Manage Claims
+            </a>
         </div>
     </div>
 
