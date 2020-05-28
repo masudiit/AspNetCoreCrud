@@ -1,26 +1,26 @@
 [
-      {
-            "ParameterKey": "CostisolveCarrierName",
-            "ParameterValue": "AXA"
-      },
-      {
-            "ParameterKey": "ImageID",
-            "ParameterValue": "hello"
-      },
-      {
-            "ParameterKey": "EnvironmentName",
-            "ParameterValue": "sandbox"
-      },
-      {
-            "ParameterKey": "isolveCarrierName",
-            "ParameterValue": "hello"
-      },
-      {
-            "ParameterKey": "VPC",
-            "ParameterValue": "vpc-af32a0d7"
-      },
-      {
-            "ParameterKey": "SubnetID",
-            "ParameterValue": "subnet-c12f5cee"
-      }
+    {
+        "ParameterKey": "CostisolveCarrierName",
+        "ParameterValue": "AXA"
+    },
+    {
+        "ParameterKey": "ImageID",
+        "ParameterValue": "hello"
+    },
+    {
+        "ParameterKey": "EnvironmentName",
+        "ParameterValue": "sandbox"
+    },
+    {
+        "ParameterKey": "isolveCarrierName",
+        "ParameterValue": "hello"
+    },
+    {
+        "ParameterKey": "VPC",
+        "ParameterValue": "vpc-af32a0d7"
+    },
+    {
+        "ParameterKey": "SubnetID",
+        "ParameterValue": "subnet-c12f5cee"
+    }
 ]
