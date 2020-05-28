@@ -112,7 +112,7 @@ namespace EmployeeManagment
             //{
             //    //  await context.Response.WriteAsync(_config["MyKey"]);
             //    await context.Response.WriteAsync("hello world");
-            //    logger.LogInformation("MW1: Outgoing Response");
+            //    logger.LogInformation("MW1: Outgoing Response xxxx");
             //});
         }
     }
