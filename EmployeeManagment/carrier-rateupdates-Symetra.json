@@ -1,42 +1,26 @@
 [
-      {
-            "ParameterValue": "Symetra",
-            "ParameterKey": "CostisolveCarrierName"
-      },
-      {
-            "ParameterValue": "hello12",
-            "ParameterKey": "CPUUtilizationAlarm"
-      },
-      {
-            "ParameterValue": "sandbox",
-            "ParameterKey": "EnvironmentName"
-      },
-      {
-            "ParameterValue": "ami-09cfd87bb53abee91",
-            "ParameterKey": "ImageID"
-      },
-      {
-            "ParameterValue": "t2.medium",
-            "ParameterKey": "InstanceType"
-      },
-      {
-            "ParameterValue": "symetra",
-            "ParameterKey": "isolveCarrierName"
-      },
-      {
-            "ParameterValue": "EPAM-API",
-            "ParameterKey": "KeyName"
-      },
-      {
-            "ParameterValue": "subnet-ac4078e7",
-            "ParameterKey": "SubnetID"
-      },
-      {
-            "ParameterValue": "10",
-            "ParameterKey": "TargetCapacity"
-      },
-      {
-            "ParameterValue": "vpc-af32a0d7",
-            "ParameterKey": "VPC"
-      }
+       {
+              "ParameterValue": "Symetra", 
+              "ParameterKey": "CostisolveCarrierName"
+       }, 
+       {
+              "ParameterValue": "ami-09cfd87bb53abee91", 
+              "ParameterKey": "ImageID"
+       }, 
+       {
+              "ParameterValue": "sandbox", 
+              "ParameterKey": "EnvironmentName"
+       }, 
+       {
+              "ParameterValue": "Symetra", 
+              "ParameterKey": "isolveCarrierName"
+       }, 
+       {
+              "ParameterValue": "vpc-af32a0d7", 
+              "ParameterKey": "VPC"
+       }, 
+       {
+              "ParameterValue": "subnet-c12f5cee", 
+              "ParameterKey": "SubnetID"
+       }
 ]
