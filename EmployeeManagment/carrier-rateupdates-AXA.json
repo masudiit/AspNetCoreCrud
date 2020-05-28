@@ -1,0 +1,26 @@
+[
+       {
+              "ParameterValue": "AXA", 
+              "ParameterKey": "CostisolveCarrierName"
+       }, 
+       {
+              "ParameterValue": "ami-0d5e9841e5d054a9a", 
+              "ParameterKey": "ImageID"
+       }, 
+       {
+              "ParameterValue": "sandbox", 
+              "ParameterKey": "EnvironmentName"
+       }, 
+       {
+              "ParameterValue": "AXA", 
+              "ParameterKey": "isolveCarrierName"
+       }, 
+       {
+              "ParameterValue": "vpc-af32a0d7", 
+              "ParameterKey": "VPC"
+       }, 
+       {
+              "ParameterValue": "subnet-c12f5cee", 
+              "ParameterKey": "SubnetID"
+       }
+]
