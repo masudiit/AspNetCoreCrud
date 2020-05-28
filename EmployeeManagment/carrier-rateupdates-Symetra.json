@@ -1,42 +1,42 @@
 [
-    {
-        "ParameterValue": "Symetra",
-        "ParameterKey": "CostisolveCarrierName"
-    },
-    {
-        "ParameterValue": "hello",
-        "ParameterKey": "CPUUtilizationAlarm"
-    },
-    {
-        "ParameterValue": "sandbox",
-        "ParameterKey": "EnvironmentName"
-    },
-    {
-        "ParameterValue": "ami-09cfd87bb53abee91",
-        "ParameterKey": "ImageID"
-    },
-    {
-        "ParameterValue": "t2.medium",
-        "ParameterKey": "InstanceType"
-    },
-    {
-        "ParameterValue": "symetra",
-        "ParameterKey": "isolveCarrierName"
-    },
-    {
-        "ParameterValue": "EPAM-API",
-        "ParameterKey": "KeyName"
-    },
-    {
-        "ParameterValue": "subnet-ac4078e7",
-        "ParameterKey": "SubnetID"
-    },
-    {
-        "ParameterValue": "10",
-        "ParameterKey": "TargetCapacity"
-    },
-    {
-        "ParameterValue": "vpc-af32a0d7",
-        "ParameterKey": "VPC"
-    }
+      {
+            "ParameterValue": "Symetra",
+            "ParameterKey": "CostisolveCarrierName"
+      },
+      {
+            "ParameterValue": "hello1",
+            "ParameterKey": "CPUUtilizationAlarm"
+      },
+      {
+            "ParameterValue": "sandbox",
+            "ParameterKey": "EnvironmentName"
+      },
+      {
+            "ParameterValue": "ami-09cfd87bb53abee91",
+            "ParameterKey": "ImageID"
+      },
+      {
+            "ParameterValue": "t2.medium",
+            "ParameterKey": "InstanceType"
+      },
+      {
+            "ParameterValue": "symetra",
+            "ParameterKey": "isolveCarrierName"
+      },
+      {
+            "ParameterValue": "EPAM-API",
+            "ParameterKey": "KeyName"
+      },
+      {
+            "ParameterValue": "subnet-ac4078e7",
+            "ParameterKey": "SubnetID"
+      },
+      {
+            "ParameterValue": "10",
+            "ParameterKey": "TargetCapacity"
+      },
+      {
+            "ParameterValue": "vpc-af32a0d7",
+            "ParameterKey": "VPC"
+      }
 ]
